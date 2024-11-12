@@ -1,12 +1,12 @@
 // auth.js
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyDQZmIQGVJFL9IXjCQaDf8dG0xJnrs8Z8w",
-  authDomain: "bhola-gymnasium-server.firebaseapp.com",
-  projectId: "bhola-gymnasium-server",
-  storageBucket: "bhola-gymnasium-server.firebasestorage.app",
-  messagingSenderId: "881846257453",
-  appId: "1:881846257453:web:58376f154b42c4d21475a4;
+  apiKey: "AIzaSyBQS-qGmDOqsRyWeb2ypva_XDwvvTsNGr8",
+  authDomain: "mohamaya-admin-app.firebaseapp.com",
+  projectId: "mohamaya-admin-app",
+  storageBucket: "mohamaya-admin-app.appspot.com",
+  messagingSenderId: "826582476022",
+  appId: "1:826582476022:web:e275f6dcb857c867d638d7"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
