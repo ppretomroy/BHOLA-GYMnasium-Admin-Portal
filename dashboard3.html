@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="auth.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard with Member Registration</title>
+  <style>
+    /* Styles as before */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { display: flex; min-height: 100vh; background-color: #f7f7f8; }
+    .sidebar { width: 250px; background-color: #f7f7f8; padding: 20px; border-right: 1px solid #ddd; }
+    .logo { font-size: 24px; font-weight: bold; color: #333; margin-bottom: 20px; }
+    .sidebar nav a { display: flex; align-items: center; padding: 10px; color: #333; text-decoration: none; transition: background-color 0.3s; border-radius: 5px; margin-bottom: 10px; }
+    .sidebar nav a:hover, .sidebar nav .active { background-color: #e3e3e3; }
+    .main-content { flex: 1; padding: 20px; background-color: #ffffff; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .header-icons { display: flex; align-items: center; }
+    .header-icons img { width: 24px; margin-left: 15px; cursor: pointer; }
+    .form-container { background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
+    .form-container h2 { margin-bottom: 20px; font-size: 24px; color: #333; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; color: #555; }
+    .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+    .form-group button { padding: 10px 20px; background-color: #4CAF50; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; }
+    .message { margin-top: 20px; padding: 15px; border-radius: 5px; font-size: 16px; display: none; }
+    .success { background-color: #d4edda; color: #155724; }
+    .error { background-color: #f8d7da; color: #721c24; }
+
+    /* Logo Section */
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .logo img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+        <img src="https://i.postimg.cc/YqTXDS52/350127944-286442500488976-1624741878496695721-n.jpg" alt="BHOLA GYMnasium Logo">
+    </div>
+    <nav>
+      <nav>
+        <a href="#">Overview</a>
+        <a href="dashboard2.html">Member Registration</a>
+        <a href="index.html" >Member List</a>
+        <a href="dashboard3.html" class="active">Monthly Free Entry</a>
+        <a href="dashboard4.html">Monthly Free</a>
+        <a href="#">Logout</a>
+      </nav>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Header -->
+    <header class="header">
+      
+    </header>
+    <!-- Member Registration Form -->
+    <section class="form-container">
+      <h2>Member Registration</h2>
+      <form id="registrationForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="entry.1861561359" required>
+        </div>
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input type="text" id="id" name="entry.1310699302" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="entry.1892805590" required>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" id="phoneNumber" name="entry.1858828776" required>
+        </div>
+        <div class="form-group">
+          <label for="monthlyFee">Monthly Fee</label>
+          <input type="number" id="monthlyFee" name="entry.1873536158" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      <div id="successMessage" class="message success">Congratulations! Your data has been submitted successfully.</div>
+      <div id="errorMessage" class="message error">Error submitting data. Please try again later.</div>
+    </section>
+
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      const form = document.getElementById("registrationForm");
+      const formData = new FormData(form);
+
+      // Replace with your actual Google Form action URL
+      const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSdYJK1cs3c_p-AHp4k_C-5gw-mUr2BAcR9uTpKD7kKuvY9FNw/formResponse";
+
+      fetch(googleFormURL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+      })
+      .then(() => {
+        showMessage("successMessage");
+        form.reset();
+      })
+      .catch(() => {
+        showMessage("errorMessage");
+      });
+    }
+
+    // Show message function
+    function showMessage(messageId) {
+      const successMessage = document.getElementById("successMessage");
+      const errorMessage = document.getElementById("errorMessage");
+
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+
+      document.getElementById(messageId).style.display = "block";
+
+      // Hide the message after 3 seconds
+      setTimeout(() => {
+        document.getElementById(messageId).style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
