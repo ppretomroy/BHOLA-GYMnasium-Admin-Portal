@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      
         body {
-            font-family:  "Roboto", sans-serif;
+            font-family:  "Hind Siliguri", sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,7 +27,7 @@
         }
 
         .login-form h2 {
-            color: #830408;
+            color: #007bff;
         }
 
         .login-form p {
@@ -52,7 +54,7 @@
             width: 100%;
             padding: 0.7em;
             margin-top: 1em;
-            background-color: #830408;
+            background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -61,12 +63,11 @@
         }
 
         .login-form button:hover {
-            background-color: #830408;
+            background-color: #0056b3;
         }
       .logo{
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
+        width: 88px;
+        height: 58px;
       }
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -74,12 +75,12 @@
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-        apiKey: "AIzaSyDQZmIQGVJFL9IXjCQaDf8dG0xJnrs8Z8w",
-        authDomain: "bhola-gymnasium-server.firebaseapp.com",
-        projectId: "bhola-gymnasium-server",
-        storageBucket: "bhola-gymnasium-server.firebasestorage.app",
-        messagingSenderId: "881846257453",
-        appId: "1:881846257453:web:58376f154b42c4d21475a4;
+            apiKey: "AIzaSyBQS-qGmDOqsRyWeb2ypva_XDwvvTsNGr8",
+            authDomain: "mohamaya-admin-app.firebaseapp.com",
+            projectId: "mohamaya-admin-app",
+            storageBucket: "mohamaya-admin-app.appspot.com",
+            messagingSenderId: "826582476022",
+            appId: "1:826582476022:web:e275f6dcb857c867d638d7"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -89,7 +90,7 @@
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
                     // User is signed in, redirect to homepage
-                    window.location.href = "dashboard.html";
+                    window.location.href = "index.html";
                 }
             });
 
@@ -130,16 +131,16 @@
 <body>
     <div class="container">
         <div class="login-form">
-          <img src='https://i.postimg.cc/YqTXDS52/350127944-286442500488976-1624741878496695721-n.jpg' alt="logo" class="logo">
-            <h2>BHOLA GYMnasium Admin Portal</h2>
-            <p>Welcome to to BHOLA GYMnasium Admin Portal, the BHOLA GYMnasium Portal only for admin and this portal design by GenKitez</p>
+          <img src='https://firebasestorage.googleapis.com/v0/b/mohamyats.appspot.com/o/Mohamaya%20Logo.png?alt=media&token=9894c470-a9f8-4376-85f1-fa958ddd2315' alt="logo" class="logo">
+            <h2>লগইন করুন</h2>
+            <p>কমিটি কর্মকর্তা ছাড়া কেউ অ্যাপ ব্যবহার করবেন না। যদি কমিটি কর্মকর্তা ছাড়া কেউ অ্যাপ ব্যবহার করেন তাহলে তার ডিজাইস আইপি ব্লোক করে দেওয়া হবে।</p>
             <form id="loginForm">
-                <label for="email">Your Email</label>
+                <label for="email">আপনার ই-মেইল আইডি লিখুন</label>
                 <input type="email" id="email" placeholder="name@example.com" required>
-                <label for="password">Password</label>
+                <label for="password">আপনার পাসওয়ার্ড লিখুন</label>
                 <input type="password" id="password" placeholder="*********" required>
               <br>
-                <button type="submit">Login</button>
+                <button type="submit">লগইন</button>
             </form>
           <br>
         </div>
